@@ -1,0 +1,201 @@
+.customization-menu{
+    height:100%;
+    margin-bottom: 0em;
+
+    &__loading{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__pick-car{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+    }
+
+    &__content{
+        display: flex;
+        
+        
+        .content-options{
+            flex-direction: column;
+            justify-content: center;
+            width:50%;
+
+            .car-model{
+                margin:.7em 0em;
+                font-size: 28px;
+            }
+
+            .engine{
+
+                h2{
+                    color:rgb(65,65,65);
+                    font-size: 21px;
+                    font-weight: lighter;
+                    margin: .3em 0em;
+                }
+
+                .engine-options{
+                    margin-bottom: 1.3em;
+
+                    .engine-btn{
+                        font-family: inherit;
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: lighter;
+                        letter-spacing: 1px;
+                        padding:.3em 1.3em;
+                        border:none;
+                        background-color: rgb(90,90,90);
+                        color:white;
+                        transition: .2s;  
+                        
+                        &:disabled{
+                            background-color: lightgray;
+                            text-decoration: line-through;
+                            
+                            &:hover{
+                                background-color: lightgray;
+                            }
+                        }
+
+                        &:hover{
+                            background-color: rgb(70,70,70);
+                        }
+
+                        &.active{
+                            background-color: rgb(25,25,25);
+                        }
+                    }
+
+                    .engine-btn + .engine-btn{
+                        margin: 0em .2em;
+                    }
+
+                    .engine-btn:first-child{
+                        margin-right:.2em;
+                    }
+                    
+                }
+            }
+
+            .gearbox{
+
+                h2{
+                    color:rgb(65,65,65);
+                    font-size: 21px;
+                    font-weight: lighter;
+                    margin: .3em 0em;
+                }
+
+                .gearbox-options{
+                    margin-bottom: 1.3em;
+
+                    .gearbox-btn{
+                        font-family: inherit;
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: lighter;
+                        letter-spacing: 1px;
+                        padding:.3em 1.3em;
+                        border:none;
+                        background-color: rgb(90,90,90);
+                        color:white;
+                        transition: .2s; 
+
+                        &:disabled{
+                            background-color: lightgray !important;
+                            text-decoration: line-through;
+                            
+                            &:hover{
+                                background-color: lightgray;
+                            }
+                        }
+
+                        &:hover{
+                            background-color: rgb(70,70,70);
+                        }
+
+                        &.active{
+                            background-color: rgb(25,25,25);
+                        }
+                    }
+
+                    .gearbox-btn + .gearbox-btn{
+                        margin: 0em .2em;
+                    }
+
+                    .gearbox-btn:first-child{
+                        margin-right:.2em;
+                    }
+                }
+
+            }
+
+            .color{
+
+                h2{
+                    color:rgb(65,65,65);
+                    font-size: 21px;
+                    font-weight: lighter;
+                    margin: .3em 0em;
+                }
+
+                .color-options{
+
+
+                    .color-btn{
+                        font-family: inherit;
+                        cursor: pointer;
+                        font-size: 14px;
+                        font-weight: lighter;
+                        letter-spacing: 1px;
+                        padding:.8em 1.9em;
+                        border:none;
+                        background-color: rgb(90,90,90);
+                        color:white;
+                        transition: .2s; 
+
+                        &:hover{
+                            outline:1px solid black;
+                        }
+
+                        &.active{
+                            outline:1px solid black;
+                        }
+                    }
+
+                    .color-btn + .color-btn{
+                        margin: 0em .2em;
+                    }
+
+                    .color-btn:first-child{
+                        margin-right:.2em;
+                    }
+                }
+
+            }
+        }
+            
+        .content-preview{
+            outline:1px solid blue;
+            width:50%;
+        }
+        
+
+
+    }
+
+    &__error{
+        font-size: 23px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

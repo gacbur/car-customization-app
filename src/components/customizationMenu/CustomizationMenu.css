@@ -1,0 +1,210 @@
+.customization-menu {
+  height: 100%;
+  margin-bottom: 0em;
+}
+
+.customization-menu__loading {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.customization-menu__pick-car {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+}
+
+.customization-menu__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.customization-menu__content .content-options {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50%;
+}
+
+.customization-menu__content .content-options .car-model {
+  margin: .7em 0em;
+  font-size: 28px;
+}
+
+.customization-menu__content .content-options .engine h2 {
+  color: #414141;
+  font-size: 21px;
+  font-weight: lighter;
+  margin: .3em 0em;
+}
+
+.customization-menu__content .content-options .engine .engine-options {
+  margin-bottom: 1.3em;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: .3em 1.3em;
+  border: none;
+  background-color: #5a5a5a;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn:disabled {
+  background-color: lightgray;
+  text-decoration: line-through;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn:disabled:hover {
+  background-color: lightgray;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn:hover {
+  background-color: #464646;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn.active {
+  background-color: #191919;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn + .engine-btn {
+  margin: 0em .2em;
+}
+
+.customization-menu__content .content-options .engine .engine-options .engine-btn:first-child {
+  margin-right: .2em;
+}
+
+.customization-menu__content .content-options .gearbox h2 {
+  color: #414141;
+  font-size: 21px;
+  font-weight: lighter;
+  margin: .3em 0em;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options {
+  margin-bottom: 1.3em;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: .3em 1.3em;
+  border: none;
+  background-color: #5a5a5a;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn:disabled {
+  background-color: lightgray !important;
+  text-decoration: line-through;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn:disabled:hover {
+  background-color: lightgray;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn:hover {
+  background-color: #464646;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn.active {
+  background-color: #191919;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn + .gearbox-btn {
+  margin: 0em .2em;
+}
+
+.customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn:first-child {
+  margin-right: .2em;
+}
+
+.customization-menu__content .content-options .color h2 {
+  color: #414141;
+  font-size: 21px;
+  font-weight: lighter;
+  margin: .3em 0em;
+}
+
+.customization-menu__content .content-options .color .color-options .color-btn {
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  padding: .8em 1.9em;
+  border: none;
+  background-color: #5a5a5a;
+  color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.customization-menu__content .content-options .color .color-options .color-btn:hover {
+  outline: 1px solid black;
+}
+
+.customization-menu__content .content-options .color .color-options .color-btn.active {
+  outline: 1px solid black;
+}
+
+.customization-menu__content .content-options .color .color-options .color-btn + .color-btn {
+  margin: 0em .2em;
+}
+
+.customization-menu__content .content-options .color .color-options .color-btn:first-child {
+  margin-right: .2em;
+}
+
+.customization-menu__content .content-preview {
+  outline: 1px solid blue;
+  width: 50%;
+}
+
+.customization-menu__error {
+  font-size: 23px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=CustomizationMenu.css.map */
