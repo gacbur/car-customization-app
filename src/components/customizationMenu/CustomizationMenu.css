@@ -190,8 +190,86 @@
 }
 
 .customization-menu__content .content-preview {
-  outline: 1px solid blue;
+  margin-top: 4em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   width: 50%;
+}
+
+.customization-menu__content .content-preview__wrapper {
+  width: 320px;
+}
+
+.customization-menu__content .content-preview__wrapper .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding: .6em 0em;
+  width: 100%;
+  color: white;
+  background-color: #191919;
+}
+
+.customization-menu__content .content-preview__wrapper .price h2 {
+  position: relative;
+  font-weight: 500;
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin-right: 1em;
+}
+
+.customization-menu__content .content-preview__wrapper .price h2 i {
+  position: absolute;
+  left: -20px;
+  top: 0px;
+  font-size: 19px;
+}
+
+.customization-menu__content .content-preview__wrapper .car-model {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.customization-menu__content .content-preview__wrapper .car-custom-details {
+  text-align: right;
+}
+
+.customization-menu__content .content-preview__wrapper .car-custom-details .detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.customization-menu__content .content-preview__wrapper .car-custom-details .detail .name {
+  font-size: 19px;
+}
+
+.customization-menu__content .content-preview__wrapper .car-custom-details .detail .value {
+  font-size: 18px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .customization-menu__error {

@@ -21,7 +21,10 @@ const MainContent = () => {
         { id: 3, model: "WK" }
     ]
 
-    const [model, setModel] = useState()
+    const [model, setModel] = useState({
+        name: "",
+        imagePath: ""
+    })
 
     const handleGetCarData = async (e) => {
         try {
@@ -29,7 +32,10 @@ const MainContent = () => {
             const response = await axios.get(URL, { params: { id: e.target.id } })
             const carData = await response.data
             dispatch(getCarData(carData))
-            setModel(carData[0].model)
+            setModel({
+                name: carData[0].model,
+                imagePath: carData[0].imagePath
+            })
             dispatch(carDataLoading(false))
         }
         catch (err) {
@@ -47,7 +53,7 @@ const MainContent = () => {
                         <button
                             key={car.id}
                             id={car.id}
-                            className={`car-model-btn ${car.model === model && 'active'}`}
+                            className={`car-model-btn ${car.model === model.name && 'active'}`}
                             onClick={(e) => handleGetCarData(e)}
                         >
                             {car.model}

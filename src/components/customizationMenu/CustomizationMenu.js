@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 import Loading from '../Loading'
+import CarImage from '../carImage/CarImage'
 
 import { useSelector } from 'react-redux'
+
+import { IoLogoUsd } from 'react-icons/io'
 
 import './CustomizationMenu.css'
 
@@ -13,7 +16,7 @@ const CustomizationMenu = ({ model }) => {
     const carDataError = useSelector(state => state.carDataError)
 
     const [pickedCustomizations, setPickedCustomizations] = useState({
-        model: model,
+        model,
         engine: {
             name: '2.0L 166BHP',
             price: 1100
@@ -23,10 +26,23 @@ const CustomizationMenu = ({ model }) => {
             price: 0,
         },
         color: {
-            name: 'red',
+            name: 'black',
             price: 0,
         },
     })
+
+    const [finalPrice, setFinalPrice] = useState()
+
+    useEffect(() => {
+        const { engine, gearbox, color } = pickedCustomizations
+        const price = engine.price + gearbox.price + color.price
+        setFinalPrice(price)
+
+    }, [pickedCustomizations])
+
+    useEffect(() => {
+        console.log(finalPrice)
+    }, [finalPrice])
 
     const engineOptions = [
         {
@@ -50,6 +66,7 @@ const CustomizationMenu = ({ model }) => {
     const gearboxOptions = [
         {
             name: "manual",
+            price: 0,
         },
         {
             name: "automatic",
@@ -59,8 +76,12 @@ const CustomizationMenu = ({ model }) => {
 
     const colorOptions = [
         {
+            name: "black",
+            price: 0,
+        },
+        {
             name: "red",
-            price: 0
+            price: 100
         },
         {
             name: "gray",
@@ -69,10 +90,6 @@ const CustomizationMenu = ({ model }) => {
         {
             name: "brown",
             price: 120
-        },
-        {
-            name: "black",
-            price: 200,
         },
         {
             name: "gold",
@@ -96,7 +113,7 @@ const CustomizationMenu = ({ model }) => {
                 price: 0,
             },
             color: {
-                name: 'red',
+                name: 'black',
                 price: 0,
             },
         })
@@ -115,12 +132,10 @@ const CustomizationMenu = ({ model }) => {
         }
 
         if (name === 'gearbox') {
-            if (pickedCustomizations.engine.name === "5.2L 532BHP") {
-                setPickedCustomizations({
-                    ...pickedCustomizations,
-                    [name]: itemValue
-                })
-            }
+            setPickedCustomizations({
+                ...pickedCustomizations,
+                [name]: itemValue
+            })
         }
 
         if (name === 'color') {
@@ -168,7 +183,7 @@ const CustomizationMenu = ({ model }) => {
                                             className={`gearbox-btn ${pickedCustomizations.gearbox.name === gearbox.name && 'active'}`}
                                             name="gearbox"
                                             onClick={(e) => handlePickedCustomizations(e, gearbox)}
-                                            disabled={pickedCustomizations.engine.name !== "5.2L 532BHP" && gearbox.name === "automatic"}
+                                            disabled={pickedCustomizations.engine.name === "5.2L 532BHP" && gearbox.name === "manual"}
                                         >
                                             {gearbox.name}
                                         </button>
@@ -194,9 +209,21 @@ const CustomizationMenu = ({ model }) => {
                         </div>
                     </div>
                     <div className="content-preview">
-                        {/* {pickedCustomizations.engine.name}<br />
-                        {pickedCustomizations.gearbox}<br />
-                        {pickedCustomizations.color}<br /> */}
+                        <div className="content-preview__wrapper">
+                            <div className="price">
+                                <h2><i><IoLogoUsd /></i>{finalPrice}</h2>
+                            </div>
+                            <div className="car-model">
+                                <CarImage
+                                    model={pickedCustomizations.model.name} pickedColor={pickedCustomizations.color.name}
+                                />
+                            </div>
+                            <div className="car-custom-details">
+                                <span className="detail"><p className="name">Engine:</p><p className="value">{pickedCustomizations.engine.name}</p></span>
+                                <span className="detail"><p className="name">Gearbox:</p ><p className="value">{pickedCustomizations.gearbox.name}</p></span>
+                                <span className="detail"><p className="name">Color:</p> <p className="value">{pickedCustomizations.color.name}</p></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             }
@@ -212,7 +239,7 @@ const CustomizationMenu = ({ model }) => {
                     Sorry, we couldn't load picked car data, Try refreshing the page!
                 </div>
             }
-        </div>
+        </div >
     )
 }
 
