@@ -20,15 +20,12 @@ const CustomizationMenu = ({ model }) => {
     const [pickedCustomizations, setPickedCustomizations] = useState({
         model,
         engine: {
-            name: '2.0L 166BHP',
             price: 1100
         },
         gearbox: {
-            name: 'manual',
             price: 0,
         },
         color: {
-            name: 'black',
             price: 0,
         },
     })
@@ -88,20 +85,21 @@ const CustomizationMenu = ({ model }) => {
     return (
         <div className="customization-menu">
             {
-                carDataLoading && carData.length === 0 ? <div className="customization-menu__loading">
+                carDataLoading && <div className="customization-menu__loading">
                     <Loading />
-                </div> : null
+                </div>
             }
             {
-                carData.length > 0 && <div className="customization-menu__content">
+                carData.length > 0 && !carDataLoading && <div className="customization-menu__content">
                     <div className="content-options">
                         <h1 className="car-model">{carData[0].model}</h1>
                         <div className="engine">
                             <h2>Engine</h2>
                             <div className="engine-options">
-                                {engineOptions.map(engine => {
+                                {engineOptions.map((engine, index) => {
                                     return (
                                         <button
+                                            key={index}
                                             className={`engine-btn ${pickedCustomizations.engine.name === engine.name && 'active'}`}
                                             name="engine"
                                             onClick={(e) => handlePickedCustomizations(e, engine)}
@@ -116,13 +114,14 @@ const CustomizationMenu = ({ model }) => {
                         <div className="gearbox">
                             <h2>Gearbox</h2>
                             <div className="gearbox-options">
-                                {gearboxOptions.map(gearbox => {
+                                {gearboxOptions.map((gearbox, index) => {
                                     return (
                                         <button
+                                            key={index}
                                             className={`gearbox-btn ${pickedCustomizations.gearbox.name === gearbox.name && 'active'}`}
                                             name="gearbox"
                                             onClick={(e) => handlePickedCustomizations(e, gearbox)}
-                                            disabled={carData[0].engine.find(item => item.name === pickedCustomizations.engine.name).gearbox.find(item => item === gearbox.name) ? false : true}
+                                            disabled={!carData[0].engine.find(item => item.name === pickedCustomizations.engine.name).gearbox.find(item => item === gearbox.name)}
                                         >
                                             {gearbox.name}
                                         </button>
@@ -133,9 +132,10 @@ const CustomizationMenu = ({ model }) => {
                         <div className="color">
                             <h2>Color</h2>
                             <div className="color-options">
-                                {colorOptions.map(color => {
+                                {colorOptions.map((color, index) => {
                                     return (
                                         <button
+                                            key={index}
                                             className={`color-btn ${pickedCustomizations.color.name === color.name && 'active'}`}
                                             name="color"
                                             onClick={(e) => handlePickedCustomizations(e, color)}
@@ -174,7 +174,7 @@ const CustomizationMenu = ({ model }) => {
                     null
             }
             {
-                carDataError && <div className="customization-menu__error">
+                carDataError && !carDataLoading && <div className="customization-menu__error">
                     Sorry, we couldn't load picked car data, Try refreshing the page!
                 </div>
             }

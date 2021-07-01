@@ -25,16 +25,15 @@ const MainContent = () => {
         name: "",
     })
 
-    const handleGetCarData = async (e) => {
+    const handleGetCarData = async (id) => {
         try {
             dispatch(carDataLoading(true))
-            const response = await axios.get(URL, { params: { id: e.target.id } })
+            const response = await axios.get(URL, { params: { id } })
             const carData = await response.data
             dispatch(getCarData(carData))
             setModel({
                 name: carData[0].model,
             })
-            console.log(carData)
             dispatch(carDataLoading(false))
         }
         catch (err) {
@@ -47,13 +46,13 @@ const MainContent = () => {
     return (
         <div className="main-content">
             <div className="main-content__car-model-buttons">
-                {carModelButtons.map(car => {
+                {carModelButtons.map((car, index) => {
                     return (
                         <button
-                            key={car.id}
+                            key={index}
                             id={car.id}
                             className={`car-model-btn ${car.model === model.name && 'active'}`}
-                            onClick={(e) => handleGetCarData(e)}
+                            onClick={() => handleGetCarData(car.id)}
                         >
                             {car.model}
                         </button>

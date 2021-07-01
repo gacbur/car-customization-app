@@ -24,7 +24,6 @@
 
 .customization-menu__pick-car {
   height: 100%;
-  outline: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
