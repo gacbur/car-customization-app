@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import Loading from '../Loading'
 import CarImage from '../carImage/CarImage'
 
+import { engineOptions, gearboxOptions, colorOptions } from './CustomizationMenuOptions'
+
 import { useSelector } from 'react-redux'
 
 import { IoLogoUsd } from 'react-icons/io'
@@ -41,67 +43,6 @@ const CustomizationMenu = ({ model }) => {
     }, [pickedCustomizations])
 
     useEffect(() => {
-        console.log(finalPrice)
-    }, [finalPrice])
-
-    const engineOptions = [
-        {
-            name: "5.2L 532BHP",
-            price: 3400
-        },
-        {
-            name: "4.2L 443BHP",
-            price: 2150
-        },
-        {
-            name: "3.6L 374BHP",
-            price: 1700
-        },
-        {
-            name: "2.0L 166BHP",
-            price: 1100
-        }
-    ]
-
-    const gearboxOptions = [
-        {
-            name: "manual",
-            price: 0,
-        },
-        {
-            name: "automatic",
-            price: 600
-        }
-    ]
-
-    const colorOptions = [
-        {
-            name: "black",
-            price: 0,
-        },
-        {
-            name: "red",
-            price: 100
-        },
-        {
-            name: "gray",
-            price: 160
-        },
-        {
-            name: "brown",
-            price: 120
-        },
-        {
-            name: "gold",
-            price: 500
-        },
-    ]
-
-    useEffect(() => {
-        console.log(pickedCustomizations)
-    }, [pickedCustomizations.model])
-
-    useEffect(() => {
         setPickedCustomizations({
             model: model,
             engine: {
@@ -121,8 +62,6 @@ const CustomizationMenu = ({ model }) => {
 
     const handlePickedCustomizations = (e, itemValue) => {
         const name = e.target.name
-        console.log(name)
-        console.log(itemValue)
 
         if (name === "engine") {
             setPickedCustomizations({
@@ -183,7 +122,7 @@ const CustomizationMenu = ({ model }) => {
                                             className={`gearbox-btn ${pickedCustomizations.gearbox.name === gearbox.name && 'active'}`}
                                             name="gearbox"
                                             onClick={(e) => handlePickedCustomizations(e, gearbox)}
-                                            disabled={pickedCustomizations.engine.name === "5.2L 532BHP" && gearbox.name === "manual"}
+                                            disabled={carData[0].engine.find(item => item.name === pickedCustomizations.engine.name).gearbox.find(item => item === gearbox.name) ? false : true}
                                         >
                                             {gearbox.name}
                                         </button>

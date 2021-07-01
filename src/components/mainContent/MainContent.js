@@ -23,7 +23,6 @@ const MainContent = () => {
 
     const [model, setModel] = useState({
         name: "",
-        imagePath: ""
     })
 
     const handleGetCarData = async (e) => {
@@ -34,8 +33,8 @@ const MainContent = () => {
             dispatch(getCarData(carData))
             setModel({
                 name: carData[0].model,
-                imagePath: carData[0].imagePath
             })
+            console.log(carData)
             dispatch(carDataLoading(false))
         }
         catch (err) {

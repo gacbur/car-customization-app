@@ -16,8 +16,15 @@
           justify-content: center;
 }
 
+@media all and (max-width: 920px) {
+  .customization-menu__loading {
+    height: 300px;
+  }
+}
+
 .customization-menu__pick-car {
   height: 100%;
+  outline: 1px solid red;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,10 +37,25 @@
   font-size: 25px;
 }
 
+@media all and (max-width: 920px) {
+  .customization-menu__pick-car {
+    height: 300px;
+  }
+}
+
 .customization-menu__content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media all and (max-width: 920px) {
+  .customization-menu__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
 }
 
 .customization-menu__content .content-options {
@@ -45,6 +67,12 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 50%;
+}
+
+@media all and (max-width: 920px) {
+  .customization-menu__content .content-options {
+    width: 100%;
+  }
 }
 
 .customization-menu__content .content-options .car-model {
@@ -60,6 +88,11 @@
 }
 
 .customization-menu__content .content-options .engine .engine-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-bottom: 1.3em;
 }
 
@@ -95,11 +128,11 @@
 }
 
 .customization-menu__content .content-options .engine .engine-options .engine-btn + .engine-btn {
-  margin: 0em .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-options .engine .engine-options .engine-btn:first-child {
-  margin-right: .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-options .gearbox h2 {
@@ -145,11 +178,11 @@
 }
 
 .customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn + .gearbox-btn {
-  margin: 0em .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-options .gearbox .gearbox-options .gearbox-btn:first-child {
-  margin-right: .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-options .color h2 {
@@ -182,11 +215,11 @@
 }
 
 .customization-menu__content .content-options .color .color-options .color-btn + .color-btn {
-  margin: 0em .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-options .color .color-options .color-btn:first-child {
-  margin-right: .2em;
+  margin: .3em .3em 0em 0em;
 }
 
 .customization-menu__content .content-preview {
@@ -204,8 +237,21 @@
   width: 50%;
 }
 
+@media all and (max-width: 920px) {
+  .customization-menu__content .content-preview {
+    width: 100%;
+    margin-bottom: 2em;
+  }
+}
+
 .customization-menu__content .content-preview__wrapper {
   width: 320px;
+}
+
+@media all and (max-width: 920px) {
+  .customization-menu__content .content-preview__wrapper {
+    width: 100%;
+  }
 }
 
 .customization-menu__content .content-preview__wrapper .price {
@@ -229,7 +275,7 @@
   font-weight: 500;
   font-size: 35px;
   letter-spacing: 1px;
-  margin-right: 1em;
+  margin-right: .7em;
 }
 
 .customization-menu__content .content-preview__wrapper .price h2 i {
@@ -250,6 +296,20 @@
 
 .customization-menu__content .content-preview__wrapper .car-custom-details {
   text-align: right;
+}
+
+@media all and (max-width: 920px) {
+  .customization-menu__content .content-preview__wrapper .car-custom-details {
+    width: 55%;
+    margin-left: auto;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .customization-menu__content .content-preview__wrapper .car-custom-details {
+    width: 100%;
+    margin-left: auto;
+  }
 }
 
 .customization-menu__content .content-preview__wrapper .car-custom-details .detail {
@@ -284,5 +344,11 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media all and (max-width: 920px) {
+  .customization-menu__error {
+    height: 300px;
+  }
 }
 /*# sourceMappingURL=CustomizationMenu.css.map */
